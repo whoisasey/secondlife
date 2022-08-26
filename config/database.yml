@@ -84,4 +84,4 @@ production:
   # database: secondlife_production
   # username: secondlife
   # password: <%= ENV["SECONDLIFE_DATABASE_PASSWORD"] %>
-    url: <%= ENV['DATABASE_URL'] %>
+  url: <%= ENV['DATABASE_URL'] %>
