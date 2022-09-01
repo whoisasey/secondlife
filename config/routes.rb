@@ -5,6 +5,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "charities#index"
-    get 'signup', to: 'admins#new'
-  resources :admins,
+  get 'signup', to: 'admins#new'
 end
