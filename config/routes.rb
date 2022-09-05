@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "charities#index"
+  get 'admin', to: 'admins#index'
   get 'signup', to: 'admins#new'
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
