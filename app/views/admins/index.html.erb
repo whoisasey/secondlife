@@ -3,12 +3,13 @@
 <h1>Admins</h1>
 
 <div id="admins">
-  <% @admins.each do |admin| %>
-    <%= render admin %>
-    <p>
-      <%= link_to "Show this admin", admin %>
-    </p>
-  <% end %>
+<% @admins.each do |admin| %>
+  <h3><%= admin.company_name %></h3>
+
+  <p>
+    <%= link_to "Show this admin", admin %>
+  </p>
+<%end %>
 </div>
 
 <%= link_to "New admin", new_admin_path %>

@@ -8,7 +8,12 @@ class AdminsController < ApplicationController
 
   # GET /admins/1 or /admins/1.json
   def show
-    @charity = Charity.find_by(admin_id: @admin.id)
+    if 
+      @charity = Charity.find_by(admin_id: @admin.id)
+    else
+      render 'error'
+
+    end
   end
 
   # GET /admins/new
