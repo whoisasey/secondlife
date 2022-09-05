@@ -25,7 +25,7 @@ class AdminsController < ApplicationController
     # binding.break
     respond_to do |format|
       if @admin.save
-        format.html { redirect_to admin_show_path(@admin), notice: "admin was successfully created." }
+        format.html { redirect_to admin_show_path(@admin), notice: "Welcome to Second Life, #{@admin.company_name}!" }
         format.json { render :show, status: :created, location: @admin }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -65,6 +65,6 @@ class AdminsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def admin_params
-      params.require(:admin).permit(:email, :password)
+      params.require(:admin).permit(:email, :password, :company_name)
     end
 end

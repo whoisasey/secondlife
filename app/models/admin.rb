@@ -7,5 +7,6 @@ class Admin < ApplicationRecord
             uniqueness: { case_sensitive: false }, 
             length: { maximum: 50 },
             format: { with: VALID_EMAIL_REGEX }
+  validates :company_name, presence: true
   has_secure_password
 end
