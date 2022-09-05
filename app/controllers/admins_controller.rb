@@ -3,11 +3,12 @@ class AdminsController < ApplicationController
 
   # GET /admins or /admins.json
   def index
-    @admin = Admin.all
+    @admins = Admin.all
   end
 
   # GET /admins/1 or /admins/1.json
   def show
+    @charity = Charity.find_by(admin_id: @admin.id)
   end
 
   # GET /admins/new
@@ -22,10 +23,10 @@ class AdminsController < ApplicationController
   # POST /admins or /admins.json
   def create
     @admin = Admin.new(admin_params)
-    # binding.break
+
     respond_to do |format|
       if @admin.save
-        format.html { redirect_to admin_show_path(@admin), notice: "Welcome to Second Life, #{@admin.company_name}!" }
+        format.html { redirect_to admin_url(@admin), notice: "Welcome to Second Life, #{@admin.company_name}!" }
         format.json { render :show, status: :created, location: @admin }
       else
         format.html { render :new, status: :unprocessable_entity }
