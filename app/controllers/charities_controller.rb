@@ -22,6 +22,7 @@ class CharitiesController < ApplicationController
   # POST /charities or /charities.json
   def create
     @charity = Charity.new(charity_params)
+    @charity.admin = current_admin
 
     respond_to do |format|
       if @charity.save
