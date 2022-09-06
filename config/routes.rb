@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   get 'admin/show/:id', to: 'admins#show', as: 'admin_show'
   resources :admins, except: [:new]
   get 'login', to: 'sessions#new'
-  post 'login', to: 'sessions#create'
-  delete 'logout', to: 'sessions#destroy'
+  post 'login', to: 'sessions#create_admin'
+  get 'logout', to: 'sessions#destroy'
 end

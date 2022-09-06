@@ -3,13 +3,13 @@ class SessionsController < ApplicationController
     @admin = Admin.new
   end
 
-  def create
+  def create_admin
     @admin = Admin.find_by(email: params[:session][:email].downcase)
 
     if @admin && @admin.authenticate(params[:session][:password_digest])
       session[:user_id] = @admin.id
       flash[:notice] = "Logged In Successfully"
-      redirect_to root_path
+      redirect_to admin_show_path(@admin)
     else
       flash.now[:alert] = "There was something wrong with your login details"
       render 'new'
